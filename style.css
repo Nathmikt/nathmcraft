@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-    --bg-primary: #0b0c10;
-    --bg-secondary: #17181f;
-    --bg-tertiary: #1f212a;
-    --border-color: rgba(255, 255, 255, 0.07);
-    --border-color-hover: rgba(0, 255, 102, 0.3);
-    --text-primary: #f0f1f5;
-    --text-secondary: #9499a6;
-    --accent-color: #00ff66;
-    --accent-hover: #33ff88;
-    --accent-glow: rgba(0, 255, 102, 0.15);
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-color-hover: #2563eb;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --accent-color: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-glow: rgba(37, 99, 235, 0.08);
     --font-mono: 'Space Mono', 'Courier New', monospace;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --transition-speed: 0.25s;
@@ -25,6 +25,25 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for modern browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
 }
 
 body {
@@ -45,8 +64,8 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
     background-size: var(--grid-size) var(--grid-size);
     pointer-events: none;
     z-index: -1;
@@ -86,7 +105,7 @@ h2::after {
 p {
     color: var(--text-secondary);
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 a {
@@ -106,7 +125,7 @@ a {
 header {
     position: sticky;
     top: 0;
-    background-color: rgba(11, 12, 16, 0.85);
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
@@ -115,7 +134,7 @@ header {
 }
 
 header:hover {
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
 .header-container {
@@ -140,6 +159,7 @@ header:hover {
     height: 8px;
     background-color: var(--accent-color);
     display: inline-block;
+    border-radius: 50%;
     animation: pulse 2s infinite;
 }
 
@@ -191,9 +211,15 @@ nav a:hover::after {
     border: 1px solid var(--border-color);
     padding: 8px;
     background-color: var(--bg-secondary);
-    border-radius: 4px;
+    border-radius: 6px;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.02);
+    transition: all var(--transition-speed) ease;
+}
+
+.hero-media:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 30px 60px rgba(37, 99, 235, 0.08), 0 10px 20px rgba(37, 99, 235, 0.03);
 }
 
 .hero-media::before {
@@ -214,13 +240,13 @@ nav a:hover::after {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 2px;
-    filter: brightness(0.85) contrast(1.05);
+    border-radius: 4px;
+    filter: grayscale(0.1) brightness(0.98);
     transition: filter var(--transition-speed) ease;
 }
 
 .hero-media:hover .hero-image {
-    filter: brightness(1) contrast(1.05);
+    filter: none;
 }
 
 .hero-content {
@@ -258,15 +284,15 @@ nav a:hover::after {
     display: flex;
     width: 100%;
     border: 1px solid var(--border-color);
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     padding: 4px;
-    border-radius: 4px;
-    transition: all var(--transition-speed) ease;
+    border-radius: 6px;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-group:focus-within {
     border-color: var(--accent-color);
-    box-shadow: 0 0 10px var(--accent-glow);
+    box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .cta-input {
@@ -286,30 +312,31 @@ nav a:hover::after {
 }
 
 .btn {
-    background-color: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border: 1px solid var(--text-primary);
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: all var(--transition-speed) ease;
-    border-radius: 2px;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
     white-space: nowrap;
+    font-weight: 500;
 }
 
 .btn:hover {
     background-color: var(--accent-color);
-    color: var(--bg-primary);
+    color: #ffffff;
     border-color: var(--accent-color);
-    box-shadow: 0 0 12px var(--accent-glow);
-    font-weight: 700;
+    box-shadow: 0 4px 14px var(--accent-glow);
+    transform: translateY(-1px);
 }
 
 .cta-note {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-secondary);
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 /* Section Common Styling */
@@ -378,8 +405,9 @@ section {
 
 .credit-card:hover {
     border-color: var(--border-color-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+    background-color: var(--bg-primary);
 }
 
 .card-header {
@@ -455,9 +483,21 @@ footer {
 
 /* Animations */
 @keyframes pulse {
-    0% { opacity: 0.4; }
-    50% { opacity: 1; }
-    100% { opacity: 0.4; }
+    0% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+        opacity: 0.6;
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 6px rgba(37, 99, 235, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+        opacity: 0.6;
+    }
 }
 
 /* Responsive Design */
@@ -496,15 +536,15 @@ footer {
     }
     
     .cta-input {
-        background-color: var(--bg-secondary);
+        background-color: var(--bg-primary);
         border: 1px solid var(--border-color);
-        border-radius: 4px;
+        border-radius: 6px;
         width: 100%;
     }
     
     .btn {
         width: 100%;
-        border-radius: 4px;
+        border-radius: 6px;
         padding: 0.9rem;
     }
 }
