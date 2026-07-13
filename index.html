@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nathmcraft - Indie Game Playtesting & Feedback Studio</title>
+    <meta name="description" content="nathmcraft is a minimalistic indie game playtesting studio. We help developers refine gameplay, eliminate friction, and polish player experiences through raw, actionable feedback." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#hero" class="logo">
+                <span class="logo-dot"></span>nathmcraft
+            </a>
+            <nav>
+                <a href="#hero">Playtest</a>
+                <a href="#about">About</a>
+                <a href="#credits">Credits</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-media">
+                    <img src="cover.jpg" alt="Minimalist indie game testing workspace visualization" class="hero-image" />
+                </div>
+                <div class="hero-content">
+                    <span class="hero-subtitle">PLAYTEST LAB</span>
+                    <h1>We playtest indie games.<br>No fluff. Just raw, actionable feedback.</h1>
+                    <p>
+                        We know the indie struggle. We don't write generic reviews or marketing hype. 
+                        We dive deep into your mechanics, game loop, difficulty balancing, and UX friction 
+                        to give you the critical reports you need before launching.
+                    </p>
+                    
+                    <!-- Call To Action -->
+                    <form id="steam-key-form" class="cta-form">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="steam-key-input" 
+                                class="cta-input" 
+                                placeholder="PASTE YOUR STEAM / PLAYTEST KEY HERE" 
+                                autocomplete="off"
+                                required
+                            />
+                            <button type="submit" class="btn" id="submit-btn">SUBMIT KEY</button>
+                        </div>
+                        <span class="cta-note">// Submitting opens your email client to send your key directly to our testing queue.</span>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2>About nathmcraft</h2>
+                <div class="about-grid">
+                    <div class="about-intro">
+                        <p>
+                            At <strong>nathmcraft</strong>, we are dedicated exclusively to the indie gaming ecosystem. 
+                            We believe that great indie games aren't born perfect—they are refined through rigorous, 
+                            honest playtesting by people who understand design, pacing, and player frustration.
+                        </p>
+                        <br />
+                        <p>
+                            We partner directly with single developers and small teams to provide comprehensive feedback reports. 
+                            Our testing cover-to-cover approach analyzes controls, level design clarity, progression pacing, 
+                            and bugs, ensuring your game is polished and ready for the global stage.
+                        </p>
+                    </div>
+                    <div class="about-details">
+                        <div class="stat-box">
+                            <span class="stat-label">01 / Our Focus</span>
+                            <p class="stat-text">100% indie games. We focus on games with unique artistic vision, experimental mechanics, and passionate developers.</p>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">02 / What We Deliver</span>
+                            <p class="stat-text">Detailed markdown reports covering gameplay flow, UI/UX pain points, visual/audio consistency, and repeatable bug logs.</p>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">03 / No Clichés</span>
+                            <p class="stat-text">We keep our pipeline simple and direct. No excessive gaming jargon, no useless metrics. Just design analysis that helps you build a better game.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Credits / Work Section -->
+        <section class="credits" id="credits">
+            <div class="container">
+                <h2>Playtest Credits</h2>
+                <p style="margin-top: 1rem; max-width: 600px;">
+                    Some of the incredible indie titles we have playtested, audited, and helped push toward release.
+                </p>
+                <div class="credits-grid">
+                    <!-- Project 1 -->
+                    <article class="credit-card">
+                        <div class="card-header">
+                            <h3 class="game-title">Aetheria: Echoes of the Void</h3>
+                            <span class="game-status">[RELEASED]</span>
+                        </div>
+                        <p class="game-description">
+                            An atmospheric rogue-lite deckbuilder. We provided extensive feedback on difficulty scaling, card synergy balance, and tutorial clarity.
+                        </p>
+                        <div class="card-footer">
+                            <span>Dev: <strong class="dev-name">Moonlit Games</strong></span>
+                            <span>Genre: Rogue-lite</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="credit-card">
+                        <div class="card-header">
+                            <h3 class="game-title">Project: Rust & Ruin</h3>
+                            <span class="game-status">[IN PLAYTEST]</span>
+                        </div>
+                        <p class="game-description">
+                            A post-apocalyptic survival game emphasizing resource scarcity. Currently testing combat weight, inventory management, and early-game pacing.
+                        </p>
+                        <div class="card-footer">
+                            <span>Dev: <strong class="dev-name">Ironclad Studios</strong></span>
+                            <span>Genre: Survival</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="credit-card">
+                        <div class="card-header">
+                            <h3 class="game-title">Solitude's Wake</h3>
+                            <span class="game-status">[BETA TEST]</span>
+                        </div>
+                        <p class="game-description">
+                            A psychological puzzle game in a low-poly aesthetic. We audited puzzle progression complexity, lighting cues, and environmental storytelling readability.
+                        </p>
+                        <div class="card-footer">
+                            <span>Dev: <strong class="dev-name">Lone Pixel Lab</strong></span>
+                            <span>Genre: Puzzle / Adventure</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <span class="footer-logo">nathmcraft</span>
+            <div class="footer-info">
+                &copy; 2026 nathmcraft. Built for the indie community.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic -->
+    <script>
+        // CONFIGURATION: Set your contact email address here
+        const PLAYTEST_EMAIL = "playtest@nathmcraft.com";
+
+        document.getElementById('steam-key-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const keyInput = document.getElementById('steam-key-input').value.trim();
+            
+            if (!keyInput) {
+                alert('Please enter a playtest or Steam key before submitting.');
+                return;
+            }
+
+            // Create mailto parameters
+            const subject = encodeURIComponent("[Playtest Key Submission] New Indie Game Key");
+            const emailBody = encodeURIComponent(
+                `Hello nathmcraft Team,\n\n` +
+                `I would like to submit a game for playtesting.\n\n` +
+                `Steam/Playtest Key: ${keyInput}\n\n` +
+                `Please let me know if you need any additional information (press kits, game description, or target audience).\n\n` +
+                `Thanks,\n[Developer / Submitter]`
+            );
+
+            // Construct and trigger mailto link
+            window.location.href = `mailto:${PLAYTEST_EMAIL}?subject=${subject}&body=${emailBody}`;
+        });
+    </script>
+</body>
+</html>
