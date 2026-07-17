@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f9fafb;
+    --bg-primary: #171A21;
+    --bg-secondary: #171A21;
     --bg-tertiary: #f3f4f6;
-    --border-color: rgba(0, 0, 0, 0.08);
+    --border-color: rgba(131, 131, 131, 0.08);
     --border-color-hover: #2563eb;
-    --text-primary: #111827;
-    --text-secondary: #4b5563;
+    --text-primary: #ffffff;
+    --text-secondary: #e9e9e9;
     --accent-color: #2563eb;
     --accent-hover: #1d4ed8;
     --accent-glow: rgba(37, 99, 235, 0.08);
@@ -125,10 +125,10 @@ a {
 header {
     position: sticky;
     top: 0;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: #171A21;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--accent-color);
     z-index: 100;
     transition: border-color var(--transition-speed) ease;
 }
@@ -195,6 +195,64 @@ nav a:hover::after {
 }
 
 /* Hero Section */
+
+.hero-section {
+    /* 1. Make it fill the exact width and height of the screen */
+    width: 100%;
+    height: 100vh;
+    
+    /* 2. Apply the dark overlay tint and background image together */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('cover.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 3. Center the text content perfectly inside the full screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* 4. Ensure padding doesn't mess with the 100vh height */
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* Styling the text inside to be crisp and readable */
+.hero-content {
+    max-width: 800px; /* Prevents text from stretching too wide on huge monitors */
+    color: #ffffff;
+}
+
+.hero-title {
+    font-size: 3.5rem; /* Large, modern heading size */
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85); /* Slightly muted white for visual hierarchy */
+    margin-bottom: 2rem;
+}
+
+/* Optional Call-to-Action Button */
+.hero-btn {
+    display: inline-block;
+    background-color: var(--accent-color, #60a5fa);
+    color: #ffffff;
+    padding: 12px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.hero-btn:hover {
+    background-color: #3b82f6; /* Darker blue on hover */
+}
+
 .hero {
     padding: 5rem 0 7rem;
     display: flex;
@@ -244,8 +302,9 @@ nav a:hover::after {
 }
 
 .hero-image {
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     display: block;
     border-radius: 4px;
     filter: grayscale(0.1) brightness(0.98);
@@ -350,6 +409,7 @@ nav a:hover::after {
 section {
     padding: 6rem 0;
     border-top: 1px solid var(--border-color);
+    
 }
 
 /* About Us Section */
@@ -511,7 +571,7 @@ section {
 /* Placeholder Cards */
 .credit-card.placeholder-card {
     border: 2px dashed var(--border-color);
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-tertiary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -538,7 +598,7 @@ section {
     font-family: var(--font-mono);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--text-secondary);
+    color: #171A21;
     opacity: 0.35;
     letter-spacing: 0.1em;
 }
@@ -546,7 +606,7 @@ section {
 .placeholder-subtitle {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--text-secondary);
+    color: #171A21;
     opacity: 0.45;
     letter-spacing: 0.15em;
 }

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nathmcraft - Indie Game Playtesting & Feedback Studio</title>
-    <meta name="description" content="nathmcraft is a minimalistic indie game playtesting studio. We help developers refine gameplay, eliminate friction, and polish player experiences through raw, actionable feedback." />
+    <meta name="description"
+        content="nathmcraft is a minimalistic indie game playtesting studio. We help developers refine gameplay, eliminate friction, and polish player experiences through raw, actionable feedback." />
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
     <!-- Header Navigation -->
@@ -23,43 +26,29 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>Playtesting indie games.<br>No fluff. Just raw, actionable feedback.</h1>
+            <p class="hero-subtitle">
+                No generic reviews or marketing hype.
+                We dive deep into your game, its mechanics, loop, difficulty balancing, and UX friction
+                to give you the critical reports you need before launching.
+            </p>
+            <form id="steam-key-form" class="cta-form">
+                <div class="input-group">
+                    <input type="text" id="steam-key-input" class="cta-input" placeholder="PASTE YOUR STEAM KEY HERE"
+                        autocomplete="off" required />
+                    <button type="submit" class="btn" id="submit-btn">SUBMIT KEY</button>
+                </div>
+                <span class="cta-note">// Submitting opens your email client to send your key directly to our
+                    testing queue.</span>
+            </form>
+        </div>
+    </section>
     <!-- Main Content -->
     <main>
-        
-        <!-- Hero Section -->
-        <section class="hero" id="hero">
-            <div class="container">
-                <div class="hero-media">
-                    <img src="cover.jpg" alt="Minimalist indie game testing workspace visualization" class="hero-image" />
-                </div>
-                <div class="hero-content">
-                    <span class="hero-subtitle">PLAYTEST LAB</span>
-                    <h1>Playtesting indie games.<br>No fluff. Just raw, actionable feedback.</h1>
-                    <p>
-                        We know the indie struggle. We don't write generic reviews or marketing hype. 
-                        We dive deep into your mechanics, game loop, difficulty balancing, and UX friction 
-                        to give you the critical reports you need before launching.
-                    </p>
-                    
-                    <!-- Call To Action -->
-                    <form id="steam-key-form" class="cta-form">
-                        <div class="input-group">
-                            <input 
-                                type="text" 
-                                id="steam-key-input" 
-                                class="cta-input" 
-                                placeholder="PASTE YOUR STEAM KEY HERE" 
-                                autocomplete="off"
-                                required
-                            />
-                            <button type="submit" class="btn" id="submit-btn">SUBMIT KEY</button>
-                        </div>
-                        <span class="cta-note">// Submitting opens your email client to send your key directly to our testing queue.</span>
-                    </form>
-                </div>
-            </div>
-        </section>
-
         <!-- About Us Section -->
         <section class="about" id="about">
             <div class="container">
@@ -67,29 +56,34 @@
                 <div class="about-grid">
                     <div class="about-intro">
                         <p>
-                            At <strong>nathmcraft</strong>, we are dedicated exclusively to the indie gaming ecosystem. 
-                            We believe that great indie games aren't born perfect—they are refined through rigorous, 
+                            We know the indie struggle.
+                            We believe that great indie games aren't born perfect, they are made awesome through
+                            rigorous,
                             honest playtesting by people who understand design, pacing, and player frustration.
                         </p>
                         <br />
                         <p>
-                            We partner directly with single developers and small teams to provide comprehensive feedback reports. 
-                            Our testing cover-to-cover approach analyzes controls, level design clarity, progression pacing, 
+                            We partner directly with single developers and small teams to give direct feedback on their
+                            games.
+                            Our testing approach analyzes controls, level design clarity, progression pacing,
                             and bugs, ensuring your game is polished and ready for the global stage.
                         </p>
                     </div>
                     <div class="about-details">
                         <div class="stat-box">
                             <span class="stat-label">01 / Our Focus</span>
-                            <p class="stat-text">100% indie games. We focus on games with unique artistic vision, experimental mechanics, and passionate developers.</p>
+                            <p class="stat-text">100% indie games. We focus on games with unique artistic vision,
+                                experimental mechanics, and passionate developers.</p>
                         </div>
                         <div class="stat-box">
                             <span class="stat-label">02 / What We Deliver</span>
-                            <p class="stat-text">Detailed markdown reports covering gameplay flow, UI/UX pain points, visual/audio consistency, and repeatable bug logs.</p>
+                            <p class="stat-text">Detailed markdown reports covering gameplay flow, UI/UX pain points,
+                                visual/audio consistency, and repeatable bug logs.</p>
                         </div>
                         <div class="stat-box">
                             <span class="stat-label">03 / No Clichés</span>
-                            <p class="stat-text">We keep our pipeline simple and direct. No excessive gaming jargon, no useless metrics. Just design analysis that helps you build a better game.</p>
+                            <p class="stat-text">We keep our pipeline simple and direct. No excessive gaming jargon, no
+                                useless metrics. Just direct feedback that helps you build a better game.</p>
                         </div>
                     </div>
                 </div>
@@ -107,11 +101,15 @@
                     <!-- Project 1 -->
                     <article class="credit-card eon-card">
                         <div class="card-header">
-                            <h3 class="game-title"><a href="https://store.steampowered.com/app/4286910/EON_Survivor/">EON Survivor</a></h3>
-                            <a href="https://store.steampowered.com/app/4286910/EON_Survivor/" target="_blank" rel="noopener noreferrer" class="game-status">[Steam]</a>
+                            <h3 class="game-title"><a
+                                    href="https://store.steampowered.com/app/4286910/EON_Survivor/">EON Survivor</a>
+                            </h3>
+                            <a href="https://store.steampowered.com/app/4286910/EON_Survivor/" target="_blank"
+                                rel="noopener noreferrer" class="game-status">[Steam]</a>
                         </div>
                         <p class="game-description">
-                            A space survivor with an objective hunting twist. We provided extensive feedback on difficulty scaling and UI clarity.
+                            A space survivor with an objective hunting twist. We provided feedback on level progression,
+                            difficulty and UI clarity.
                         </p>
                         <div class="card-footer">
                             <span>Dev: <strong class="dev-name">Square Wheel</strong></span>
@@ -155,11 +153,11 @@
         // CONFIGURATION: Set your contact email address here
         const PLAYTEST_EMAIL = "playtest@nathmcraft.com";
 
-        document.getElementById('steam-key-form').addEventListener('submit', function(event) {
+        document.getElementById('steam-key-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             const keyInput = document.getElementById('steam-key-input').value.trim();
-            
+
             if (!keyInput) {
                 alert('Please enter a playtest or Steam key before submitting.');
                 return;
@@ -180,4 +178,5 @@
         });
     </script>
 </body>
+
 </html>
