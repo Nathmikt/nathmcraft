@@ -64,8 +64,8 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+        linear-gradient(to right, rgb(37, 99, 235, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(37, 99, 235, 0.03) 1px, transparent 1px);
     background-size: var(--grid-size) var(--grid-size);
     pointer-events: none;
     z-index: -1;
@@ -581,10 +581,8 @@ section {
 }
 
 .credit-card.placeholder-card:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
     border-color: var(--border-color-hover);
-    background-color: var(--bg-secondary);
-    transform: none;
-    box-shadow: none;
 }
 
 .placeholder-content {
