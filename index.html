@@ -41,8 +41,8 @@
                         autocomplete="off" required />
                     <button type="submit" class="btn" id="submit-btn">SUBMIT KEY</button>
                 </div>
-                <span class="cta-note">// Submitting opens your email client to send your key directly to our
-                    testing queue.</span>
+                <span class="cta-note">// Submitting sends your key directly to our Discord testing queue.</span>
+                <span class="cta-note">// For other inquiries, just dm us on Reddit or Discord</span>
             </form>
         </div>
     </section>
@@ -149,31 +149,46 @@
 
     <!-- Interactive Logic -->
     <script>
-        // CONFIGURATION: Set your contact email address here
-        const PLAYTEST_EMAIL = "playtest@nathmcraft.com";
+        const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1529531805248651344/RbP0pq64Fh1hIvnz95QoVZ_W35z4OENUW5x-1XbD-IrtSsinQ51Am_2pTbhbP_Zycohk";
 
-        document.getElementById('steam-key-form').addEventListener('submit', function (event) {
+        document.getElementById('steam-key-form').addEventListener('submit', async function (event) {
             event.preventDefault();
 
             const keyInput = document.getElementById('steam-key-input').value.trim();
+            const submitBtn = document.getElementById('submit-btn');
 
             if (!keyInput) {
                 alert('Please enter a playtest or Steam key before submitting.');
                 return;
             }
 
-            // Create mailto parameters
-            const subject = encodeURIComponent("[Playtest Key Submission] New Indie Game Key");
-            const emailBody = encodeURIComponent(
-                `Hello nathmcraft Team,\n\n` +
-                `I would like to submit a game for playtesting.\n\n` +
-                `Steam/Playtest Key: ${keyInput}\n\n` +
-                `Please let me know if you need any additional information (press kits, game description, or target audience).\n\n` +
-                `Thanks,\n[Developer / Submitter]`
-            );
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SUBMITTING...';
 
-            // Construct and trigger mailto link
-            window.location.href = `mailto:${PLAYTEST_EMAIL}?subject=${subject}&body=${emailBody}`;
+            try {
+                const response = await fetch(DISCORD_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content: `🎮 **New Playtest Key Submitted!**\n**Key:** \`${keyInput}\``
+                    })
+                });
+
+                if (response.ok) {
+                    alert('Key submitted successfully!');
+                    document.getElementById('steam-key-input').value = '';
+                } else {
+                    alert('Failed to submit key. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error submitting key:', error);
+                alert('An error occurred while submitting key.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SUBMIT KEY';
+            }
         });
     </script>
 </body>
