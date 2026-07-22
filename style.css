@@ -63,7 +63,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         linear-gradient(to right, rgb(37, 99, 235, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgb(37, 99, 235, 0.03) 1px, transparent 1px);
     background-size: var(--grid-size) var(--grid-size);
@@ -72,7 +72,13 @@ body::before {
 }
 
 /* Typography */
-h1, h2, h3, h4, .btn, .mono-text, nav a {
+h1,
+h2,
+h3,
+h4,
+.btn,
+.mono-text,
+nav a {
     font-family: var(--font-mono);
 }
 
@@ -200,19 +206,19 @@ nav a:hover::after {
     /* 1. Make it fill the exact width and height of the screen */
     width: 100%;
     height: 100vh;
-    
+
     /* 2. Apply the dark overlay tint and background image together */
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('cover.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
+
     /* 3. Center the text content perfectly inside the full screen */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
+
     /* 4. Ensure padding doesn't mess with the 100vh height */
     box-sizing: border-box;
     padding: 20px;
@@ -220,12 +226,14 @@ nav a:hover::after {
 
 /* Styling the text inside to be crisp and readable */
 .hero-content {
-    max-width: 800px; /* Prevents text from stretching too wide on huge monitors */
+    max-width: 800px;
+    /* Prevents text from stretching too wide on huge monitors */
     color: #ffffff;
 }
 
 .hero-title {
-    font-size: 3.5rem; /* Large, modern heading size */
+    font-size: 3.5rem;
+    /* Large, modern heading size */
     margin-bottom: 1rem;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -233,8 +241,10 @@ nav a:hover::after {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.85); /* Slightly muted white for visual hierarchy */
+    color: rgba(255, 255, 255, 0.85);
+    /* Slightly muted white for visual hierarchy */
     margin-bottom: 2rem;
+    background-color: #000000;
 }
 
 /* Optional Call-to-Action Button */
@@ -250,7 +260,8 @@ nav a:hover::after {
 }
 
 .hero-btn:hover {
-    background-color: #3b82f6; /* Darker blue on hover */
+    background-color: #3b82f6;
+    /* Darker blue on hover */
 }
 
 .hero {
@@ -409,7 +420,7 @@ nav a:hover::after {
 section {
     padding: 6rem 0;
     border-top: 1px solid var(--border-color);
-    
+
 }
 
 /* About Us Section */
@@ -643,11 +654,13 @@ footer {
         box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
         opacity: 0.6;
     }
+
     70% {
         transform: scale(1.1);
         box-shadow: 0 0 0 6px rgba(37, 99, 235, 0);
         opacity: 1;
     }
+
     100% {
         transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
@@ -661,7 +674,7 @@ footer {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .header-container {
         flex-direction: column;
         justify-content: center;
@@ -669,19 +682,19 @@ footer {
         height: auto;
         padding: 1rem 0;
     }
-    
+
     nav {
         gap: 1.5rem;
     }
-    
+
     .hero {
         padding: 3rem 0 5rem;
     }
-    
+
     .hero-media {
         margin-bottom: 2rem;
     }
-    
+
     .input-group {
         flex-direction: column;
         border: none;
@@ -689,14 +702,14 @@ footer {
         padding: 0;
         gap: 0.75rem;
     }
-    
+
     .cta-input {
         background-color: var(--bg-primary);
         border: 1px solid var(--border-color);
         border-radius: 6px;
         width: 100%;
     }
-    
+
     .btn {
         width: 100%;
         border-radius: 6px;
