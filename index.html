@@ -202,10 +202,10 @@
         <span>Username copied</span>
     </div>
 
+    <!-- Configuration -->
+    <script src="config.js"></script>
     <!-- Interactive Logic -->
     <script>
-        const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1529531805248651344/RbP0pq64Fh1hIvnz95QoVZ_W35z4OENUW5x-1XbD-IrtSsinQ51Am_2pTbhbP_Zycohk";
-
         // Discord username copy logic
         let toastTimeout;
         function showToast() {
@@ -260,16 +260,22 @@
         document.getElementById('steam-key-form').addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            const keyInput = document.getElementById('steam-key-input').value.trim();
+            const codeInput = document.getElementById('steam-key-input').value.trim();
             const submitBtn = document.getElementById('submit-btn');
 
-            if (!keyInput) {
-                alert('Please enter a playtest or Steam key before submitting.');
+            if (!codeInput) {
+                alert('Please enter a Steam code before submitting.');
+                return;
+            }
+
+            if (typeof DISCORD_WEBHOOK_URL === 'undefined' || !DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL === 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
+                alert('Discord Webhook URL is not configured. Please set DISCORD_WEBHOOK_URL in config.js.');
                 return;
             }
 
             submitBtn.disabled = true;
-            submitBtn.textContent = 'SUBMITTING...';
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
 
             try {
                 const response = await fetch(DISCORD_WEBHOOK_URL, {
@@ -278,22 +284,27 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        content: `🎮 **New Playtest Key Submitted!**\n**Key:** \`${keyInput}\``
+                        content: "🎮 **New Steam Code Submitted:** `" + codeInput + "`"
                     })
                 });
 
                 if (response.ok) {
-                    alert('Key submitted successfully!');
+                    submitBtn.textContent = 'Success!';
+                    alert('Steam code submitted successfully!');
                     document.getElementById('steam-key-input').value = '';
                 } else {
-                    alert('Failed to submit key. Please try again.');
+                    submitBtn.textContent = 'Error';
+                    alert('Failed to submit Steam code. Server returned error: ' + response.status);
                 }
             } catch (error) {
-                console.error('Error submitting key:', error);
-                alert('An error occurred while submitting key.');
+                console.error('Error submitting code:', error);
+                submitBtn.textContent = 'Error';
+                alert('Network error occurred while submitting Steam code.');
             } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'SUBMIT KEY';
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }, 2000);
             }
         });
     </script>
