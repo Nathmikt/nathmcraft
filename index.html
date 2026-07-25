@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>nathmcraft - Indie Game Playtesting</title>
+    <link rel="icon" type="image/x-icon" href="nathmcraft.png">
     <meta name="description"
         content="nathmcraft is a minimalistic indie game playtesting studio. We help developers refine gameplay, eliminate friction, and polish player experiences through raw, actionable feedback." />
     <link rel="stylesheet" href="style.css" />
@@ -15,13 +16,26 @@
     <!-- Header Navigation -->
     <header>
         <div class="container header-container">
-            <a href="#hero" class="logo">
-                <span class="logo-dot"></span>nathmcraft
-            </a>
+            <div class="logo-group">
+                <a href="#hero" class="logo">
+                    <span class="logo-dot"></span>
+                    <img src="nathmcraft.png" alt="nathmcraft icon" class="logo-img" />
+                    <span class="logo-text">nathmcraft</span>
+                </a>
+                <div class="header-socials">
+                    <a href="https://www.reddit.com/user/Nathmikt/" target="_blank" rel="noopener noreferrer" class="social-icon-link" title="Reddit Profile">
+                        <img src="reddit_icon.png" alt="Reddit" class="social-icon" />
+                    </a>
+                    <button type="button" class="social-icon-btn discord-copy-trigger" title="Copy Discord Username (nathm.)">
+                        <img src="Discord-Symbol-Blurple.png" alt="Discord" class="social-icon" />
+                    </button>
+                </div>
+            </div>
             <nav>
                 <a href="#hero">Playtest</a>
                 <a href="#about">About</a>
                 <a href="#credits">Credits</a>
+                <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
@@ -135,6 +149,41 @@
             </div>
         </section>
 
+        <!-- Contact Us Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p style="margin-top: 1rem; max-width: 600px;">
+                    Connect with us directly. Send a message on Reddit or add us on Discord.
+                </p>
+                <div class="contact-grid">
+                    <!-- Reddit Spotlight Card -->
+                    <a href="https://www.reddit.com/user/Nathmikt/" target="_blank" rel="noopener noreferrer" class="contact-card reddit-spotlight">
+                        <div class="contact-icon-wrapper">
+                            <img src="reddit_icon.png" alt="Reddit" class="contact-card-icon" />
+                        </div>
+                        <div class="contact-card-body">
+                            <span class="contact-platform">REDDIT</span>
+                            <h3 class="contact-handle">u/Nathmikt</h3>
+                            <span class="contact-action-text">Visit Reddit Profile &rarr;</span>
+                        </div>
+                    </a>
+
+                    <!-- Discord Spotlight Card -->
+                    <div class="contact-card discord-spotlight discord-copy-trigger" role="button" tabindex="0" title="Click to copy Discord Username">
+                        <div class="contact-icon-wrapper">
+                            <img src="Discord-Symbol-Blurple.png" alt="Discord" class="contact-card-icon" />
+                        </div>
+                        <div class="contact-card-body">
+                            <span class="contact-platform">DISCORD</span>
+                            <h3 class="contact-handle">nathm.</h3>
+                            <span class="contact-action-text">Click to Copy Username</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -147,9 +196,66 @@
         </div>
     </footer>
 
+    <!-- Toast Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite">
+        <span class="toast-dot"></span>
+        <span>Username copied</span>
+    </div>
+
     <!-- Interactive Logic -->
     <script>
         const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1529531805248651344/RbP0pq64Fh1hIvnz95QoVZ_W35z4OENUW5x-1XbD-IrtSsinQ51Am_2pTbhbP_Zycohk";
+
+        // Discord username copy logic
+        let toastTimeout;
+        function showToast() {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        function copyDiscordUsername() {
+            const textToCopy = "nathm.";
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy).then(showToast).catch(() => fallbackCopy(textToCopy));
+            } else {
+                fallbackCopy(textToCopy);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        document.querySelectorAll('.discord-copy-trigger').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                copyDiscordUsername();
+            });
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    copyDiscordUsername();
+                }
+            });
+        });
 
         document.getElementById('steam-key-form').addEventListener('submit', async function (event) {
             event.preventDefault();
