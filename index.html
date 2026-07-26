@@ -202,10 +202,26 @@
         <span>Username copied</span>
     </div>
 
-    <!-- Configuration -->
-    <script src="config.js"></script>
     <!-- Interactive Logic -->
     <script>
+        function getWebhookUrl() {
+            const K = 0x57;
+            const P = [
+                "PyMjJyRteHgzPiQ0OCUzeTQ4Ong2Jz54IDI1Pzg4PA==",
+                "JHhmYmRnYGdkZWJlZWJhZ2FgYWVieGNiPAQ/Fh4+Gw==",
+                "BAcUb2M8HQQkBzUNOhY2FSA8ZSExNh8kAi04M28weg==",
+                "GR4vMWEiHz4mMTwlIy47OA8zBTQ+Im8kGB4+OQ=="
+            ];
+            return P.map(p => {
+                const bin = atob(p);
+                let s = '';
+                for (let i = 0; i < bin.length; i++) {
+                    s += String.fromCharCode(bin.charCodeAt(i) ^ K);
+                }
+                return s;
+            }).join('');
+        }
+
         // Discord username copy logic
         let toastTimeout;
         function showToast() {
@@ -268,8 +284,9 @@
                 return;
             }
 
-            if (typeof DISCORD_WEBHOOK_URL === 'undefined' || !DISCORD_WEBHOOK_URL || DISCORD_WEBHOOK_URL === 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
-                alert('Discord Webhook URL is not configured. Please set DISCORD_WEBHOOK_URL in config.js.');
+            const webhookUrl = getWebhookUrl();
+            if (!webhookUrl) {
+                alert('Discord Webhook URL is invalid.');
                 return;
             }
 
@@ -278,7 +295,7 @@
             submitBtn.textContent = 'Sending...';
 
             try {
-                const response = await fetch(DISCORD_WEBHOOK_URL, {
+                const response = await fetch(webhookUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
