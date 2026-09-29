@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nathmcraft - Indie Game Playtesting</title>
+    <title>nathmcraft - Indie Game Studio</title>
     <link rel="icon" type="image/x-icon" href="nathmcraft.png">
     <meta name="description"
-        content="nathmcraft is a minimalistic indie game playtesting studio. We help developers refine gameplay, eliminate friction, and polish player experiences through raw, actionable feedback." />
+        content="nathmcraft is an indie game development studio currently developing a roguelike, alongside offering dedicated indie playtesting support." />
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -32,8 +32,9 @@
                 </div>
             </div>
             <nav>
-                <a href="#hero">Playtest</a>
+                <a href="#games">Games</a>
                 <a href="#about">About</a>
+                <a href="#playtest">Playtest</a>
                 <a href="#credits">Credits</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -43,25 +44,53 @@
     <!-- Hero Section -->
 
     <section class="hero-section" id="hero">
-        <div class="container">
-            <h1>Playtesting indie games.<br>No fluff. Just raw, actionable feedback.</h1>
+        <div class="container hero-content">
+            <h1>Indie Game Studio.<br>Focused design, no filler.</h1>
             <p class="hero-subtitle">
-                Our goal is simple - we dive deep into your game to offer critical feedback.
-                No generic reviews or marketing hype.
+                Currently developing a roguelike. More to be announced.
             </p>
-            <form id="steam-key-form" class="cta-form">
-                <div class="input-group">
-                    <input type="text" id="steam-key-input" class="cta-input" placeholder="PASTE YOUR STEAM KEY HERE"
-                        autocomplete="off" required maxlength="60" />
-                    <button type="submit" class="btn" id="submit-btn">SUBMIT KEY</button>
-                </div>
-                <span class="cta-note">// Submitting sends your key directly to our Discord testing queue.</span>
-                <span class="cta-note">// For other inquiries, just dm us on Reddit or Discord</span>
-            </form>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#games" class="hero-btn">OUR GAMES</a>
+                <a href="#about" class="btn">ABOUT US</a>
+            </div>
         </div>
     </section>
     <!-- Main Content -->
     <main>
+        <!-- Games Section -->
+        <section class="games" id="games">
+            <div class="container">
+                <h2>Our Games</h2>
+                <p style="margin-top: 1rem; max-width: 600px;">
+                    Focused, mechanics-driven experiences in active development.
+                </p>
+                <div class="credits-grid">
+                    <!-- Project 1 -->
+                    <article class="credit-card">
+                        <div class="card-header">
+                            <h3 class="game-title">Unannounced Roguelike</h3>
+                            <span class="game-status">[In Development]</span>
+                        </div>
+                        <p class="game-description">
+                            A roguelike currently in active development. Built with tight gameplay loops, deep progression, and replayability. More details to be announced.
+                        </p>
+                        <div class="card-footer">
+                            <span>Dev: <strong class="dev-name">nathmcraft</strong></span>
+                            <span>Genre: Roguelike</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 (Placeholder) -->
+                    <article class="credit-card placeholder-card">
+                        <div class="placeholder-content">
+                            <span class="placeholder-title">TBD</span>
+                            <span class="placeholder-subtitle">COMING SOON</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- About Us Section -->
         <section class="about" id="about">
             <div class="container">
@@ -69,36 +98,50 @@
                 <div class="about-grid">
                     <div class="about-intro">
                         <p>
-                            We know the indie struggle.
-                            We believe that great indie games aren't born perfect, they are made awesome through
-                            rigorous,
-                            honest playtesting by people who understand design, pacing, and player frustration.
+                            We are an independent game development studio dedicated to crafting focused, mechanics-first titles.
+                            We build games driven by clear systems, sharp pacing, and respect for player time.
                         </p>
                         <br />
                         <p>
-                            We partner directly with single developers and small teams to give direct feedback on their
-                            games.
-                            Our testing approach analyzes controls, level design clarity, progression pacing,
-                            and bugs, ensuring your game is polished and ready for the global stage.
+                            Our roots are firmly planted in the indie scene. Alongside developing our own projects, we continue to playtest games for fellow creators — bringing honest critique, design insight, and actionable feedback to small teams and solo developers.
                         </p>
                     </div>
                     <div class="about-details">
                         <div class="stat-box">
-                            <span class="stat-label">01 / Our Focus</span>
-                            <p class="stat-text">100% indie games. We focus on games with unique artistic vision,
-                                experimental mechanics, and passionate developers.</p>
+                            <span class="stat-label">01 / Current Focus</span>
+                            <p class="stat-text">Indie game development. Currently working on an unannounced roguelike with tight loops and high replay value.</p>
                         </div>
                         <div class="stat-box">
-                            <span class="stat-label">02 / What We Deliver</span>
-                            <p class="stat-text">Detailed markdown reports covering gameplay flow, UI/UX pain points,
-                                visual/audio consistency, and repeatable bug logs.</p>
+                            <span class="stat-label">02 / Design Philosophy</span>
+                            <p class="stat-text">Mechanics first, zero filler. Clean controls, thoughtful progression, and distinctive atmosphere over marketing hype.</p>
                         </div>
                         <div class="stat-box">
-                            <span class="stat-label">03 / No Clichés</span>
-                            <p class="stat-text">We keep our pipeline simple and direct. No excessive gaming jargon, no
-                                useless metrics. Just direct feedback that helps you build a better game.</p>
+                            <span class="stat-label">03 / Playtesting Roots</span>
+                            <p class="stat-text">We know the indie struggle firsthand. We still run playtesting for indie titles, offering raw, actionable feedback from one developer to another.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Indie Playtesting Section -->
+        <section class="playtest" id="playtest">
+            <div class="container">
+                <h2>Indie Playtesting</h2>
+                <p style="margin-top: 1rem; max-width: 600px;">
+                    We still support fellow indie developers with raw, actionable feedback.
+                    Submit your Steam key to queue it for playtesting.
+                </p>
+                <div style="margin-top: 2rem;">
+                    <form id="steam-key-form" class="cta-form" style="margin: 0; align-items: flex-start;">
+                        <div class="input-group">
+                            <input type="text" id="steam-key-input" class="cta-input" placeholder="PASTE YOUR STEAM KEY HERE"
+                                autocomplete="off" required maxlength="60" />
+                            <button type="submit" class="btn" id="submit-btn">SUBMIT KEY</button>
+                        </div>
+                        <span class="cta-note">// Submitting sends your key directly to our Discord testing queue.</span>
+                        <span class="cta-note">// For other inquiries, dm us on Reddit or Discord below</span>
+                    </form>
                 </div>
             </div>
         </section>
@@ -106,7 +149,7 @@
         <!-- Credits / Work Section -->
         <section class="credits" id="credits">
             <div class="container">
-                <h2>Our Credits</h2>
+                <h2>Playtesting Credits</h2>
                 <p style="margin-top: 1rem; max-width: 600px;">
                     Some of the incredible indie titles we have playtested and helped push toward release.
                 </p>

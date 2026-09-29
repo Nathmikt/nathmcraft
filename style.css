@@ -437,6 +437,7 @@ nav a:hover::after {
 }
 
 .btn {
+    display: inline-block;
     background-color: var(--text-primary);
     color: var(--bg-primary);
     border: 1px solid var(--text-primary);
