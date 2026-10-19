@@ -514,8 +514,8 @@ export class Area1 {
     this.mushroomGlow = new MushroomGlowManager(this.group, this.mushroomData);
 
     // 11. Interactive Fruit Items (disappear on pickup)
-    this.addItem(new AppleItem(this.group, { x: -2.0, z: -5.0 }));
-    this.addItem(new CherryItem(this.group, { x: 2.0, z: -5.5 }));
+    this.addItem(new AppleItem(this.group, { x: -10.8, z: 4.5 }));
+    this.addItem(new CherryItem(this.group, { x: 4.8, z: 10.6 }));
   }
 
   initInteractables() {
