@@ -345,15 +345,51 @@ export class CloakedAngel extends NPC {
       player.freeze();
 
       const mainMenu = {
-        prompt: "nathmcraft — Indie Game Studio. What brings you to the grove?",
+        prompt: "What brings you to the grove?",
         choices: []
       };
+
+      const creditsMenu = {
+        prompt: "Some of the indie titles we have playtested and helped push toward release:",
+        choices: []
+      };
+
+      creditsMenu.choices = [
+        {
+          label: "EON Survivor",
+          lines: [
+            "EON Survivor (by Square Wheel) — Genre: Survivor-like.",
+            "A space survivor with an objective hunting twist. We provided feedback on level progression, difficulty, and UI clarity."
+          ],
+          nextChoices: {
+            prompt: "EON Survivor on Steam:",
+            choices: [
+              {
+                label: "Open EON Survivor Steam Page ↗",
+                action: () => {
+                  window.open("https://store.steampowered.com/app/4286910/EON_Survivor/", "_blank", "noopener,noreferrer");
+                },
+                lines: ["Opened EON Survivor on Steam."],
+                nextChoices: mainMenu
+              },
+              {
+                label: "[Back]",
+                nextChoices: creditsMenu
+              }
+            ]
+          }
+        },
+        {
+          label: "[Back]",
+          nextChoices: mainMenu
+        }
+      ];
 
       mainMenu.choices = [
         {
           label: "01 / Our Games",
           lines: [
-            "We build focused, mechanics-driven experiences.",
+            "We build focused, nostalgic experiences.",
             "Currently in active development: [Unannounced Roguelike].",
             "Built with tight gameplay loops, deep progression, and high replayability. More details to be announced."
           ],
@@ -379,29 +415,8 @@ export class CloakedAngel extends NPC {
           }
         },
         {
-          label: "04 / Playtesting Credits (EON Survivor)",
-          lines: [
-            "Some of the indie titles we have playtested and helped push toward release:",
-            "EON Survivor (by Square Wheel) — Genre: Survivor-like.",
-            "A space survivor with an objective hunting twist. We provided feedback on level progression, difficulty, and UI clarity."
-          ],
-          nextChoices: {
-            prompt: "EON Survivor on Steam:",
-            choices: [
-              {
-                label: "Open EON Survivor Steam Page ↗",
-                action: () => {
-                  window.open("https://store.steampowered.com/app/4286910/EON_Survivor/", "_blank", "noopener,noreferrer");
-                },
-                lines: ["Opened EON Survivor on Steam."],
-                nextChoices: mainMenu
-              },
-              {
-                label: "[Back]",
-                nextChoices: mainMenu
-              }
-            ]
-          }
+          label: "04 / Playtesting Credits",
+          nextChoices: creditsMenu
         },
         {
           label: "05 / Contact Us (Reddit & Discord)",
@@ -449,7 +464,8 @@ export class CloakedAngel extends NPC {
           : [
               "Welcome, traveler, to our grove - nathmcraft.",
               "We are an independent game studio crafting focused, mechanically rich and deeply nostalgic games.",
-              "Speak with me anytime to learn about our games, submit a Steam key for playtesting, or get in touch."
+              "Speak with me anytime to learn about our games.",
+              "Or just have fun and explore."
             ];
 
         dialogue.startDialogue(introLines, () => {
@@ -483,7 +499,7 @@ export class CloakedAngel extends NPC {
         cols: 4,
         rows: 1,
         totalFrames: 4,
-        frameDurations: [ [8.0, 12.0], 0.5, 0.35, 0.5 ],
+        frameDurations: [[8.0, 12.0], 0.5, 0.35, 0.5],
         loop: true
       },
       onInteract: defaultOnInteract,

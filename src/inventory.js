@@ -236,4 +236,12 @@ export class InventoryManager {
       this.navigate('down');
     }
   }
+
+  handlePointerDown(e) {
+    if (!this.isOpen) return;
+    if (e && e.target && (e.target.closest('#inventory-box') || e.target.closest('#inventory-desc-box'))) {
+      return;
+    }
+    this.close();
+  }
 }

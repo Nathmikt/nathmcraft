@@ -168,11 +168,20 @@ export class InputManager {
       return;
     }
 
+    if (mode === InputMode.INVENTORY) {
+      this.inventory?.handlePointerDown(e);
+      return;
+    }
+
     if (mode === InputMode.EXPLORATION || mode === InputMode.PAUSED) {
       if (this.player) {
+        const wasLocked = this.player.isLocked;
         this.player.isPaused = false;
         this.player.requestLock();
         window.focus();
+        if (wasLocked && mode === InputMode.EXPLORATION && e.button === 0) {
+          this.interactables?.triggerInteraction();
+        }
       }
     }
   }

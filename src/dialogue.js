@@ -20,9 +20,12 @@ export class DialogueManager {
     this.selectedChoiceIndex = 0;
   }
 
-  handlePointerDown() {
+  handlePointerDown(e) {
     if (!this.isActive) return;
-    if (!this.isChoosing) {
+    if (this.isChoosing) {
+      if (e && e.target && e.target.closest('.dialogue-choice')) return;
+      this.selectChoice(this.selectedChoiceIndex);
+    } else {
       this.advance();
     }
   }
@@ -91,7 +94,7 @@ export class DialogueManager {
     if (this.optionsEl) {
       this.optionsEl.classList.remove('hidden');
     }
-    this.hintEl.textContent = '[W/S] Navigate | [E]/[Space]/[Enter] Select';
+    this.hintEl.textContent = '[W/S] Navigate | [E]/[Space]/[Click] Select';
     this.container.classList.remove('hidden');
 
     this.renderChoices();
@@ -163,7 +166,7 @@ export class DialogueManager {
     this.currentChar = 0;
 
     this.textEl.textContent = '';
-    this.hintEl.textContent = '[E] / [Space] Fast Forward';
+    this.hintEl.textContent = '[E] / [Space] / [Click] Fast Forward';
 
     setTimeout(() => {
       this.allowAdvance = true;
@@ -188,7 +191,7 @@ export class DialogueManager {
     this.textEl.textContent = this.fullText;
     this.isTyping = false;
     const hasMore = (this.queueIndex < this.queue.length - 1) || Boolean(this.pendingNextChoices);
-    this.hintEl.textContent = hasMore ? '[E] / [Space] Next' : '[E] / [Space] Close';
+    this.hintEl.textContent = hasMore ? '[E] / [Space] / [Click] Next' : '[E] / [Space] / [Click] Close';
   }
 
   closeDialogue(runCallback = true) {
