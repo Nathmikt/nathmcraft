@@ -1,373 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nathmcraft - Indie Game Studio</title>
-    <link rel="icon" type="image/x-icon" href="nathmcraft.png">
-    <meta name="description"
-        content="nathmcraft is an indie game development studio currently developing a roguelike, alongside offering dedicated indie playtesting support." />
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nathmcraft - Indie Game Studio</title>
+  <link rel="icon" type="image/x-icon" href="/nathmcraft.png" />
+  <meta name="description" content="nathmcraft is an indie game development studio currently developing a roguelike, alongside offering dedicated indie playtesting support." />
+  <link rel="stylesheet" href="./src/style.css" />
 </head>
-
 <body>
+  <div id="game-container"></div>
+  <div id="ui-layer">
+    <div id="crosshair"></div>
+    <div id="click-to-play" class="hint-badge">Click to Look around (WASD to walk | [E] Interact)</div>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="container header-container">
-            <div class="logo-group">
-                <a href="#hero" class="logo">
-                    <span class="logo-dot"></span>
-                    <img src="nathmcraft.png" alt="nathmcraft icon" class="logo-img" />
-                    <span class="logo-text">nathmcraft</span>
-                </a>
-                <div class="header-socials">
-                    <a href="https://www.reddit.com/user/Nathmikt/" target="_blank" rel="noopener noreferrer" class="social-icon-link" title="Reddit Profile">
-                        <img src="reddit_icon.png" alt="Reddit" class="social-icon" />
-                    </a>
-                    <button type="button" class="social-icon-btn discord-copy-trigger" title="Copy Discord Username (nathm.)">
-                        <img src="Discord-Symbol-Blurple.png" alt="Discord" class="social-icon" />
-                    </button>
-                </div>
-            </div>
-            <nav>
-                <a href="#games">Games</a>
-                <a href="#about">About</a>
-                <a href="#playtest">Playtest</a>
-                <a href="#credits">Credits</a>
-                <a href="#contact">Contact</a>
-            </nav>
+    <div id="dialogue-container" class="hidden">
+      <div id="dialogue-box">
+        <div id="dialogue-text"></div>
+        <div id="dialogue-options" class="hidden"></div>
+        <div id="dialogue-hint">[E] / [Space]</div>
+      </div>
+    </div>
+
+    <div id="inventory-container" class="hidden">
+      <div id="inventory-box">
+        <div class="inventory-header">
+          <span class="inventory-title">INVENTORY</span>
+          <span class="inventory-hint">[WASD/Arrows] Browse | [I/ESC] Close</span>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-
-    <section class="hero-section" id="hero">
-        <div class="container hero-content">
-            <h1>Indie Game Studio.<br>Focused design, no filler.</h1>
-            <p class="hero-subtitle">
-                Currently developing a roguelike. More to be announced.
-            </p>
-            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#games" class="hero-btn">OUR GAMES</a>
-                <a href="#about" class="btn">ABOUT US</a>
-            </div>
+        <div id="inventory-content">
+          <div id="inventory-grid" class="hidden"></div>
+          <div id="inventory-empty">The inventory is empty.</div>
         </div>
-    </section>
-    <!-- Main Content -->
-    <main>
-        <!-- Games Section -->
-        <section class="games" id="games">
-            <div class="container">
-                <h2>Our Games</h2>
-                <p style="margin-top: 1rem; max-width: 600px;">
-                    Focused, mechanics-driven experiences in active development.
-                </p>
-                <div class="credits-grid">
-                    <!-- Project 1 -->
-                    <article class="credit-card">
-                        <div class="card-header">
-                            <h3 class="game-title">Unannounced Roguelike</h3>
-                            <span class="game-status">[In Development]</span>
-                        </div>
-                        <p class="game-description">
-                            A roguelike currently in active development. Built with tight gameplay loops, deep progression, and replayability. More details to be announced.
-                        </p>
-                        <div class="card-footer">
-                            <span>Dev: <strong class="dev-name">nathmcraft</strong></span>
-                            <span>Genre: Roguelike</span>
-                        </div>
-                    </article>
+      </div>
+      <div id="inventory-desc-box">
+        <div id="inventory-desc-name"></div>
+        <div id="inventory-desc-text"></div>
+      </div>
+    </div>
 
-                    <!-- Project 2 (Placeholder) -->
-                    <article class="credit-card placeholder-card">
-                        <div class="placeholder-content">
-                            <span class="placeholder-title">TBD</span>
-                            <span class="placeholder-subtitle">COMING SOON</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Us Section -->
-        <section class="about" id="about">
-            <div class="container">
-                <h2>About nathmcraft</h2>
-                <div class="about-grid">
-                    <div class="about-intro">
-                        <p>
-                            We are an independent game development studio dedicated to crafting focused, mechanics-first titles.
-                            We build games driven by clear systems, sharp pacing, and respect for player time.
-                        </p>
-                        <br />
-                        <p>
-                            Our roots are firmly planted in the indie scene. Alongside developing our own projects, we continue to playtest games for fellow creators — bringing honest critique, design insight, and actionable feedback to small teams and solo developers.
-                        </p>
-                    </div>
-                    <div class="about-details">
-                        <div class="stat-box">
-                            <span class="stat-label">01 / Current Focus</span>
-                            <p class="stat-text">Indie game development. Currently working on an unannounced roguelike with tight loops and high replay value.</p>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-label">02 / Design Philosophy</span>
-                            <p class="stat-text">Mechanics first, zero filler. Clean controls, thoughtful progression, and distinctive atmosphere over marketing hype.</p>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-label">03 / Playtesting Roots</span>
-                            <p class="stat-text">We know the indie struggle firsthand. We still run playtesting for indie titles, offering raw, actionable feedback from one developer to another.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Indie Playtesting Section -->
-        <section class="playtest" id="playtest">
-            <div class="container">
-                <h2>Indie Playtesting</h2>
-                <p style="margin-top: 1rem; max-width: 600px;">
-                    We still support fellow indie developers with raw, actionable feedback.
-                    Submit your Steam key to queue it for playtesting.
-                </p>
-                <div style="margin-top: 2rem;">
-                    <form id="steam-key-form" class="cta-form" style="margin: 0; align-items: flex-start;">
-                        <div class="input-group">
-                            <input type="text" id="steam-key-input" class="cta-input" placeholder="PASTE YOUR STEAM KEY HERE"
-                                autocomplete="off" required maxlength="60" />
-                            <button type="submit" class="btn" id="submit-btn">SUBMIT KEY</button>
-                        </div>
-                        <span class="cta-note">// Submitting sends your key directly to our Discord testing queue.</span>
-                        <span class="cta-note">// For other inquiries, dm us on Reddit or Discord below</span>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Credits / Work Section -->
-        <section class="credits" id="credits">
-            <div class="container">
-                <h2>Playtesting Credits</h2>
-                <p style="margin-top: 1rem; max-width: 600px;">
-                    Some of the incredible indie titles we have playtested and helped push toward release.
-                </p>
-                <div class="credits-grid">
-                    <!-- Project 1 -->
-                    <article class="credit-card eon-card">
-                        <div class="card-header">
-                            <h3 class="game-title"><a
-                                    href="https://store.steampowered.com/app/4286910/EON_Survivor/">EON Survivor</a>
-                            </h3>
-                            <a href="https://store.steampowered.com/app/4286910/EON_Survivor/" target="_blank"
-                                rel="noopener noreferrer" class="game-status">[Steam]</a>
-                        </div>
-                        <p class="game-description">
-                            A space survivor with an objective hunting twist. We provided feedback on level progression,
-                            difficulty and UI clarity.
-                        </p>
-                        <div class="card-footer">
-                            <span>Dev: <strong class="dev-name">Square Wheel</strong></span>
-                            <span>Genre: Survivor-like</span>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 (Placeholder) -->
-                    <article class="credit-card placeholder-card">
-                        <div class="placeholder-content">
-                            <span class="placeholder-title">TBD</span>
-                            <span class="placeholder-subtitle">COMING SOON</span>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 (Placeholder) -->
-                    <article class="credit-card placeholder-card">
-                        <div class="placeholder-content">
-                            <span class="placeholder-title">TBD</span>
-                            <span class="placeholder-subtitle">COMING SOON</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Us Section -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <p style="margin-top: 1rem; max-width: 600px;">
-                    Connect with us directly. Send a message on Reddit or add us on Discord.
-                </p>
-                <div class="contact-grid">
-                    <!-- Reddit Spotlight Card -->
-                    <a href="https://www.reddit.com/user/Nathmikt/" target="_blank" rel="noopener noreferrer" class="contact-card reddit-spotlight">
-                        <div class="contact-icon-wrapper">
-                            <img src="reddit_icon.png" alt="Reddit" class="contact-card-icon" />
-                        </div>
-                        <div class="contact-card-body">
-                            <span class="contact-platform">REDDIT</span>
-                            <h3 class="contact-handle">u/Nathmikt</h3>
-                            <span class="contact-action-text">Visit Reddit Profile &rarr;</span>
-                        </div>
-                    </a>
-
-                    <!-- Discord Spotlight Card -->
-                    <div class="contact-card discord-spotlight discord-copy-trigger" role="button" tabindex="0" title="Click to copy Discord Username">
-                        <div class="contact-icon-wrapper">
-                            <img src="Discord-Symbol-Blurple.png" alt="Discord" class="contact-card-icon" />
-                        </div>
-                        <div class="contact-card-body">
-                            <span class="contact-platform">DISCORD</span>
-                            <h3 class="contact-handle">nathm.</h3>
-                            <span class="contact-action-text">Click to Copy Username</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-container">
-            <span class="footer-logo">nathmcraft</span>
-            <div class="footer-info">
-                &copy; 2026 nathmcraft. Built for the indie community.
-            </div>
+    <!-- Steam Key Submission Modal -->
+    <div id="steam-key-modal" class="hidden">
+      <div id="steam-key-box">
+        <div class="inventory-header">
+          <span class="inventory-title">INDIE PLAYTESTING // SUBMIT STEAM KEY</span>
+          <button type="button" id="close-steam-modal" class="modal-close-btn">[ESC / CLOSE]</button>
         </div>
-    </footer>
+        <p class="modal-desc">
+          We support fellow indie developers with raw, actionable feedback. Submit your Steam key to queue it directly into our Discord testing queue.
+        </p>
+        <form id="steam-key-form" class="steam-form">
+          <div class="steam-input-group">
+            <input type="text" id="steam-key-input" placeholder="PASTE YOUR STEAM KEY HERE" autocomplete="off" required maxlength="60" />
+            <button type="submit" id="submit-btn">SUBMIT KEY</button>
+          </div>
+          <div class="steam-notes">
+            <span>// Submitting sends your key directly to our Discord testing queue.</span>
+            <span>// For other inquiries, talk to The Hooded Angel for our Reddit &amp; Discord links.</span>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Toast Notification -->
     <div id="toast" class="toast" role="status" aria-live="polite">
-        <span class="toast-dot"></span>
-        <span>Username copied</span>
+      <span class="toast-dot"></span>
+      <span id="toast-text">Username copied: nathm.</span>
     </div>
 
-    <!-- Interactive Logic -->
-    <script>
-        function getWebhookUrl() {
-            const K = 0x57;
-            const P = [
-                "PyMjJyRteHgzPiQ0OCUzeTQ4Ong2Jz54IDI1Pzg4PA==",
-                "JHhmYmRnYGdkZWJlZWJhZ2FgYWVieGNiPAQ/Fh4+Gw==",
-                "BAcUb2M8HQQkBzUNOhY2FSA8ZSExNh8kAi04M28weg==",
-                "GR4vMWEiHz4mMTwlIy47OA8zBTQ+Im8kGB4+OQ=="
-            ];
-            return P.map(p => {
-                const bin = atob(p);
-                let s = '';
-                for (let i = 0; i < bin.length; i++) {
-                    s += String.fromCharCode(bin.charCodeAt(i) ^ K);
-                }
-                return s;
-            }).join('');
-        }
-
-        // Discord username copy logic
-        let toastTimeout;
-        function showToast() {
-            const toast = document.getElementById('toast');
-            if (!toast) return;
-            toast.classList.add('show');
-            if (toastTimeout) clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2500);
-        }
-
-        function copyDiscordUsername() {
-            const textToCopy = "nathm.";
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(textToCopy).then(showToast).catch(() => fallbackCopy(textToCopy));
-            } else {
-                fallbackCopy(textToCopy);
-            }
-        }
-
-        function fallbackCopy(text) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            textArea.style.position = "fixed";
-            textArea.style.left = "-9999px";
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            try {
-                document.execCommand('copy');
-                showToast();
-            } catch (err) {
-                console.error('Failed to copy', err);
-            }
-            document.body.removeChild(textArea);
-        }
-
-        document.querySelectorAll('.discord-copy-trigger').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                copyDiscordUsername();
-            });
-            el.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    copyDiscordUsername();
-                }
-            });
-        });
-
-        document.getElementById('steam-key-form').addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            const codeInput = document.getElementById('steam-key-input').value.trim();
-            const submitBtn = document.getElementById('submit-btn');
-
-            if (!codeInput) {
-                alert('Please enter a Steam code before submitting.');
-                return;
-            }
-
-            const webhookUrl = getWebhookUrl();
-            if (!webhookUrl) {
-                alert('Discord Webhook URL is invalid.');
-                return;
-            }
-
-            submitBtn.disabled = true;
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-
-            try {
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        content: "🎮 **New Steam Code Submitted:** `" + codeInput + "`"
-                    })
-                });
-
-                if (response.ok) {
-                    submitBtn.textContent = 'Success!';
-                    alert('Steam code submitted successfully!');
-                    document.getElementById('steam-key-input').value = '';
-                } else {
-                    submitBtn.textContent = 'Error';
-                    alert('Failed to submit Steam code. Server returned error: ' + response.status);
-                }
-            } catch (error) {
-                console.error('Error submitting code:', error);
-                submitBtn.textContent = 'Error';
-                alert('Network error occurred while submitting Steam code.');
-            } finally {
-                setTimeout(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                }, 2000);
-            }
-        });
-    </script>
+    <canvas id="transition-canvas"></canvas>
+  </div>
+  <script type="module" src="./src/main.js"></script>
 </body>
-
 </html>
